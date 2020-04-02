@@ -1,3 +1,4 @@
+
 <?php
    //connecting to database
    include_once 'connection.php';
@@ -13,7 +14,6 @@
 </head>
 
 <Body>
-
   <ul class="MenuBar">
     <li class="MenuBlocks"><a href="Home.html" class="MenuLinks">Home</a></li>
     <li class="MenuBlocks"><a href="Clinics.php" class="MenuLinks">Clinics</a></li>
@@ -21,6 +21,7 @@
     <li class="MenuBlocks"><a href="patients.php" class="MenuLinks">Patients</a></li>
     <li class="MenuBlocks"><a href="SqlQuery.php" class="MenuLinks">SqlQuery</a></li>
     <li class="MenuBlocks"><a href="Bills.php" class="MenuLinks">Bills</a></li>
+    <li class="MenuBlocks"><a href="appointments.php" class="MenuLinks">Appointments</a></li>
   </ul>
 
   <img src="pic1.jpg" alt="Art" width=100% height="200" style="border-bottom: lightblue">
@@ -72,13 +73,14 @@
       <br/>
       <button class="button1" onclick="findPatient()"> Search </button>
       <br/>
-      <div id="innerBlock2">   </div>
+      <div id="innerBlock2" style="position:relative; top:30px;">   </div>
   </div>
 
 </div>
 <button class="button1" onclick="add('addp','delp')" style="margin-left:50px;"> Add </button>
 <button class="button1" onclick="delete1('delp','addp')" style="margin-left:50px;"> Delete </button>
 <a href="SqlQuery.php"><button class="button1" style="margin-left:50px;"> Update </button></a>
+<button class="button1" onclick="viewMissed()" style="margin-left:50px;"> apptMissed </button>
 
 <div id="divB">
 
@@ -109,6 +111,47 @@
 
 </div>
 
+<div id="missAppt">
+
+<p style="color:#3295a8; margin-left:50px;">Missed Appointment</p>
+
+<?php
+
+   $sql="SELECT patient.patient_id, patient.pname, temp.missedAppt FROM (SELECT patient_id, COUNT(status) AS missedAppt
+   FROM appointment WHERE status='missed' GROUP BY patient_id)temp, patient WHERE patient.patient_id = temp.patient_id;";
+
+   $result = mysqli_query($connection,$sql);
+   $resultCheck = mysqli_num_rows($result);
+
+
+   if($resultCheck>0){
+     echo "
+     <table id=\"info\">
+       <tr>
+       <th>Patient ID</th>
+       <th>Name</th>
+       <th>Missed Appointment</th>
+       </tr>";
+
+
+     while($row=mysqli_fetch_assoc($result)){
+
+       $row1=$row['patient_id'];   //modify table in database
+       $row2=$row['pname'];
+       $row3=$row['missedAppt'];
+
+     echo "
+       <tr>
+         <td>$row1</td>
+         <td>$row2</td>
+         <td>$row3</td>
+       </tr>
+       " ;
+    }
+       echo "</table>";
+       echo "<button onclick=\"done()\" style=\"position:relative;top:10px;left:50px;\">Done</button>";
+    }
+?>
 
 
 </Body>

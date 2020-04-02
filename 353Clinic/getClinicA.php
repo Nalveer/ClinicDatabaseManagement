@@ -3,8 +3,8 @@
 
    include_once 'connection.php';
 
-$c = intval($_GET['c']);
-$d = intval($_GET['d']);
+$c = $_GET['c'];
+$d = $_GET['d'];
 
 
 $sql="SELECT * FROM appointment WHERE clinic_id = '$c' AND appointment.date = '$d'";  //need to test
@@ -33,6 +33,9 @@ while($row = mysqli_fetch_array($result)) {
     echo "</tr> </a>";
 }
 echo "</table>";
+}
+else{
+  echo "NO Result";
 }
 
 

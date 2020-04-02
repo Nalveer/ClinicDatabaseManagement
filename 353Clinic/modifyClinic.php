@@ -2,7 +2,7 @@
 
    include_once 'connection.php';
 
-$c = intval($_GET['c']);
+$c = $_GET['c'];
 $q = $_GET['q'];
 $n = $_GET['n'];
 $a = $_GET['a'];

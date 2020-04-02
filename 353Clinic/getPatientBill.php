@@ -5,7 +5,7 @@
 $p = intval($_GET['p']);
 
 
-$sql="SELECT * FROM Bill INNER JOIN Appointment ON appointment.app_id = bill.app_id WHERE patient_id = '".$p."'";  //change query after adding bill table
+$sql="SELECT bill_id,bill.app_id,bill.staff_id,bill.date,total,bill.status FROM bill INNER JOIN appointment ON appointment.app_id = bill.app_id WHERE patient_id = '".$p."'";  //change query after adding bill table
 $result = mysqli_query($connection,$sql);
 
 if($result){
@@ -22,7 +22,7 @@ echo "<br/>
 <th>AppointmentID</th>
 <th>staffID</th>
 <th>Date</th>
-<th>Amount</th>
+<th>Total</th>
 <th>status</th>
 </tr>";
 while($row = mysqli_fetch_array($result)) {
@@ -31,7 +31,7 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['app_id'] . "</td>";
     echo "<td>" . $row['staff_id'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
-    echo "<td>" . $row['amount'] . "</td>";
+    echo "<td>" . $row['total'] . "</td>";
     echo "<td>" . $row['status'] . "</td>";
     echo "</tr> </a>";
 }

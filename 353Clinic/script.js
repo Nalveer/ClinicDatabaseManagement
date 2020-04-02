@@ -1,6 +1,6 @@
 
 function findClinic(){
-
+  //getting inputs from html
   var cid = document.getElementById("cid").value;
   var date = document.getElementById("pDate").value;
 
@@ -9,12 +9,12 @@ function findClinic(){
     alert("Invalid Input");
     location.reload();
   };
-
+  //ajax code to get data from database
   var xhttp;
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("innerBlock1").innerHTML = this.responseText;
+      document.getElementById("innerBlock1").innerHTML = this.responseText;  //result displayed in html
     }
   };
   xhttp.open("GET", "getClinicA.php?c="+cid+"&d="+date, true);
@@ -62,7 +62,8 @@ function findDentist(){
       document.getElementById("innerBlock3").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "getClinicA.php?c="+did+"&d="+date, true);
+
+  xhttp.open("GET", "getDentistA.php?c="+did+"&d="+date, true);
   xhttp.send();
 
 }
@@ -273,13 +274,15 @@ function findPatientBill(){
 
 function addBill(){
 
-  var pid = document.getElementById("addnameB").value;
+  var sid = document.getElementById("addnameB").value;
   var bill = document.getElementById("addBill").value;
   var appt = document.getElementById("addAppoint").value;
   var amount = document.getElementById("addAmount").value;
+  var date = document.getElementById("addDate").value;
+  var status = document.getElementById("addStatus").value;
   var queryType = "add";
   //if empty input
-  if(pid=="" || bill=="" || appt=="" ||amount==""){
+  if(sid=="" || bill=="" || appt=="" ||amount==""||date==""||status==""){
     alert("Invalid Input");
     location.reload();
   };
@@ -290,7 +293,7 @@ function addBill(){
       document.getElementById("resp7").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "modifyBill.php?p="+pid+"&b="+bill+"&ap="+appt+"&a="+amount+"&q="+queryType, true);
+  xhttp.open("GET", "modifyBill.php?p="+sid+"&b="+bill+"&ap="+appt+"&a="+amount+"&d="+date+"&s="+status+"&q="+queryType, true);
   xhttp.send();
 
 }
@@ -299,9 +302,11 @@ function deleteBill(){
 
   var bill = document.getElementById("delBill").value;
   var queryType = "delete";
-  var pid = 0;
+  var sid = 0;
   var amount = 0;
   var appt = 0;
+  var date= "na";
+  var status = "na";
 
 
   if(bill==""){
@@ -317,7 +322,7 @@ function deleteBill(){
     }
   };
 
-  xhttp.open("GET","modifyBill.php?p="+pid+"&b="+bill+"&ap="+appt+"&a="+amount+"&q="+queryType, true);
+  xhttp.open("GET","modifyBill.php?p="+sid+"&b="+bill+"&ap="+appt+"&a="+amount+"&d="+date+"&s="+status+"&q="+queryType, true);
   xhttp.send();
 
 
@@ -328,5 +333,71 @@ function viewUnpaidBill(){
   document.getElementById("unpaidB").style.display = "block";
   document.getElementById("addB").style.display = "none";
   document.getElementById("delB").style.display = "none";
+
+}
+
+function addApp(){
+
+  var sid = document.getElementById("addStaff").value;
+  var pid = document.getElementById("addnameA").value;
+  var cid = document.getElementById("addClinic").value;
+  var appt = document.getElementById("addAppoint").value;
+  var rece = document.getElementById("rece").value;
+  var date = document.getElementById("addDate").value;
+  var status = document.getElementById("addStatus").value;
+  var queryType = "add";
+  //if empty input
+  if(sid=="" || cid=="" || appt=="" ||rece==""||date==""||status==""||pid==""){
+    alert("Invalid Input");
+    location.reload();
+  };
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("resp9").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "modifyAppt.php?p="+pid+"&st="+sid+"&c="+cid+"&ap="+appt+"&r="+rece+"&d="+date+"&s="+status+"&q="+queryType, true);
+  xhttp.send();
+
+}
+
+function deleteApp(){
+
+  var appt = document.getElementById("addAppoint").value;
+  var queryType = "delete";
+
+  var sid = 0;
+  var pid = 0;
+  var cid = "na";
+  var rece = 0;
+  var date = "na";
+  var status = "na";
+
+  //if empty input
+  if(appt==""){
+    alert("Invalid Input");
+    location.reload();
+  };
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("resp10").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "modifyAppt.php?p="+pid+"&st="+sid+"&c="+cid+"&ap="+appt+"&r="+rece+"&d="+date+"&s="+status+"&q="+queryType, true);
+  xhttp.send();
+
+
+}
+
+function viewMissed(){
+
+  document.getElementById("missAppt").style.display = "block";
+  document.getElementById("addp").style.display = "none";
+  document.getElementById("delp").style.display = "none";
+
 
 }

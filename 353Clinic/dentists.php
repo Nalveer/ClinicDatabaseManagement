@@ -22,6 +22,7 @@
     <li class="MenuBlocks"><a href="patients.php" class="MenuLinks">Patients</a></li>
     <li class="MenuBlocks"><a href="SqlQuery.php" class="MenuLinks">SqlQuery</a></li>
     <li class="MenuBlocks"><a href="Bills.php" class="MenuLinks">Bills</a></li>
+    <li class="MenuBlocks"><a href="appointments.php" class="MenuLinks">Appointments</a></li>
   </ul>
 
   <img src="pic1.jpg" alt="Art" width=100% height="200" style="border-bottom: lightblue">
@@ -75,7 +76,7 @@
       <br/>
       <button class="button1" onclick="findDentist()"> Search </button>
       <br/>
-      <div id="innerBlock3">   </div>
+      <div id="innerBlock3" style="position:relative;top:30px;">   </div>
   </div>
 
 </div>
