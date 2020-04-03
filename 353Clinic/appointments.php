@@ -76,19 +76,19 @@
          echo "</table>";
       }
   ?>
-<!--
+<
   <div id="blockA">
 
-    <h2 style="color:#3295a8"> View Number of Missed Appointment </h2>
+    <h2 style="color:#3295a8"> View Treatments </h2>
     <hr/>
-      <label> Patient ID: </label>
-      <input type="text" id="pidB" name= "patientID" placeholder="pID">
+      <label> Appointment ID: </label>
+      <input type="text" id="appID" name= "appID" placeholder="app_id">
       <br/>
-      <button class="button1" onclick="MissedAppt()"> Search </button>
+      <button class="button1" onclick="findTreatment()"> Search </button>
       <br/>
       <div id="innerBlock7"  style="position:relative; top:20px;">   </div>
   </div>
--->
+
 </div>
 <button class="button1" onclick="add('addB','delB')" style="margin-left:50px;"> Add </button>
 <button class="button1" onclick="delete1('delB','addB')" style="margin-left:50px;"> Delete </button>
@@ -128,7 +128,7 @@
   <div id="delB" class="del">
 
     <label style="position:relative;top:10px;left:10px;"> Appointment_ID:</label>
-    <input type="text" id="delBill" placeholder="app_id" class="inputL"><br/>
+    <input type="text" id="delApp" placeholder="app_id" class="inputL"><br/>
     <button class="delB" onclick="deleteApp()" > Delete </button>
     <button class="delB" onclick="done()"> Done </button>
     <p style=" position: relative; margin-left:10px; top:60px;" id="resp10"></p>

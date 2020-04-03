@@ -365,7 +365,7 @@ function addApp(){
 
 function deleteApp(){
 
-  var appt = document.getElementById("addAppoint").value;
+  var appt = document.getElementById("delApp").value;
   var queryType = "delete";
 
   var sid = 0;
@@ -398,6 +398,29 @@ function viewMissed(){
   document.getElementById("missAppt").style.display = "block";
   document.getElementById("addp").style.display = "none";
   document.getElementById("delp").style.display = "none";
+
+}
+
+function findTreatment(){
+
+
+  var app_id = document.getElementById("appID").value;
+  //if empty input
+  if(app_id==""){
+    alert("Invalid Input");
+    location.reload();
+  };
+
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("innerBlock7").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getTreatment.php?a="+app_id, true);
+  xhttp.send();
+
 
 
 }
