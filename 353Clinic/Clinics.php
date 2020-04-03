@@ -34,7 +34,7 @@
 
 <?php
 
-   $sql="SELECT * FROM clinic;";
+   $sql="SELECT * FROM Clinic";
    $result = mysqli_query($connection,$sql);
    $resultCheck = mysqli_num_rows($result);
 

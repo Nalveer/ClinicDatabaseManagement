@@ -32,7 +32,7 @@
 
   <?php
 
-     $sql="SELECT * FROM patient;";
+     $sql="SELECT * FROM Patient;";
      $result = mysqli_query($connection,$sql);
      $resultCheck = mysqli_num_rows($result);
 

@@ -1,11 +1,11 @@
 <?php
 
 
-$DbSname = "localhost";
-$DbUsername = "root";
-$DbPassword = "";
+$DbSname = "jvc353.encs.concordia.ca";
+$DbUsername = "jvc353_4";
+$DbPassword = "353_Admi";
 
-$DbName ="dental";
+$DbName ="jvc353_4";
 
 $connection = mysqli_connect($DbSname,$DbUsername,$DbPassword,$DbName);
 

@@ -76,7 +76,7 @@
          echo "</table>";
       }
   ?>
-<
+
   <div id="blockA">
 
     <h2 style="color:#3295a8"> View Treatments </h2>

@@ -33,7 +33,7 @@
 
   <?php
 
-     $sql="SELECT * FROM Staff INNER JOIN dentist ON Staff.staff_id = dentist.staff_id";
+     $sql="SELECT * FROM Staff INNER JOIN Dentist ON Staff.staff_id = Dentist.staff_id";
      $result = mysqli_query($connection,$sql);
      $resultCheck = mysqli_num_rows($result);
 
