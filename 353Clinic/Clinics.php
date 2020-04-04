@@ -34,7 +34,7 @@
 
 <?php
 
-   $sql="SELECT * FROM clinic;";
+   $sql="SELECT * FROM Clinic";
    $result = mysqli_query($connection,$sql);
    $resultCheck = mysqli_num_rows($result);
 
@@ -73,7 +73,7 @@
     <label> Clinic ID: </label>
     <input type="text" id="cid" name= "clinicID" placeholder="cID">
     <label for="fname"> Date:</label>
-    <input type="text" id="pDate" name="date" placeholder="YYYY/MM/DD">
+    <input type="text" id="pDate" name="date" placeholder="YYYY-MM-DD">
     <br/>
     <button class="button1" onclick="findClinic()"> Search </button>
     <br/>

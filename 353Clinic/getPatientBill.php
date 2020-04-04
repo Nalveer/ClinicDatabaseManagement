@@ -5,7 +5,7 @@
 $p = intval($_GET['p']);
 
 
-$sql="SELECT bill_id,bill.app_id,bill.staff_id,bill.date,total,bill.status FROM bill INNER JOIN appointment ON appointment.app_id = bill.app_id WHERE patient_id = '".$p."'";  //change query after adding bill table
+$sql="SELECT Bill.bill_id,Bill.app_id,Bill.staff_id,Bill.date,total,Bill.status FROM Bill INNER JOIN Appointment ON Appointment.app_id = Bill.app_id WHERE patient_id = '".$p."'";  //change query after adding bill table
 $result = mysqli_query($connection,$sql);
 
 if($result){

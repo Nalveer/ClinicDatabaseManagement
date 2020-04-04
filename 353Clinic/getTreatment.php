@@ -5,7 +5,7 @@
 $a = intval($_GET['a']);
 
 
-$sql=" SELECT treatment.treat_id, treatment.content, treatment.price FROM assign INNER JOIN treatment ON assign.treat_id = treatment.treat_id WHERE assign.app_id='$a';";
+$sql=" SELECT Treatment.treat_id, Treatment.content, Treatment.price FROM Assign INNER JOIN Treatment ON Assign.treat_id = Treatment.treat_id WHERE Assign.app_id='$a';";
 $result = mysqli_query($connection,$sql);
 
 if($result){

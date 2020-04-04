@@ -31,8 +31,8 @@
 <textarea id="query" rows="4" cols="50">  </textarea>
 <p></p>
 <button  onclick="executeQuery()" class="button1"> Execute </button>
-  <div id="innerDiv2" style="width:400px; margin: auto; height:100%; position: relative;top:30px;"> </div>
-
+  <div id="innerDiv2" style="width:400px; margin: auto; height:100%; position: relative; top: 30px;"> </div>
+  <div style="width:400px; margin: auto; height:100%; position: relative; top: 30px;"> </div>
 
 </div>
 

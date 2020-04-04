@@ -12,10 +12,10 @@ $q = $_GET['q'];                //queryType
 
 
 if($q=="add"){
-  $sql="INSERT INTO bill (bill_id,app_id, staff_id,total,bill.date,status) VALUES ('$b','$ap','$p','$a','$d','$s')";
+  $sql="INSERT INTO Bill (bill_id,app_id, staff_id,total,Bill.date,Bill.status) VALUES ('$b','$ap','$p','$a','$d','$s')";
 }
 else{
-  $sql="DELETE FROM bill WHERE bill_id=$b";
+  $sql="DELETE FROM Bill WHERE bill_id=$b";
 }
 
 $result = mysqli_query($connection,$sql);

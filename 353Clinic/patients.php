@@ -32,7 +32,7 @@
 
   <?php
 
-     $sql="SELECT * FROM patient;";
+     $sql="SELECT * FROM Patient;";
      $result = mysqli_query($connection,$sql);
      $resultCheck = mysqli_num_rows($result);
 
@@ -117,8 +117,8 @@
 
 <?php
 
-   $sql="SELECT patient.patient_id, patient.pname, temp.missedAppt FROM (SELECT patient_id, COUNT(status) AS missedAppt
-   FROM appointment WHERE status='missed' GROUP BY patient_id)temp, patient WHERE patient.patient_id = temp.patient_id;";
+   $sql="SELECT Patient.patient_id, Patient.pname, temp.missedAppt FROM (SELECT patient_id, COUNT(status) AS missedAppt
+   FROM Appointment WHERE status='missed' GROUP BY patient_id)temp, Patient WHERE Patient.patient_id = temp.patient_id;";
 
    $result = mysqli_query($connection,$sql);
    $resultCheck = mysqli_num_rows($result);

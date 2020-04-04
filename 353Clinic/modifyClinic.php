@@ -9,10 +9,10 @@ $a = $_GET['a'];
 
 
 if($q=="add"){
-  $sql="INSERT INTO clinic (clinic_id, cname, address	) VALUES ('$c','$n','$a')";
+  $sql="INSERT INTO Clinic (clinic_id, cname, address	) VALUES ('$c','$n','$a')";
 }
 else{
-  $sql="DELETE FROM clinic WHERE clinic_id=$c";
+  $sql="DELETE FROM Clinic WHERE clinic_id='$c'";
 }
 
 $result = mysqli_query($connection,$sql);
