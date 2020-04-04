@@ -7,7 +7,7 @@ $c = $_GET['c'];
 $d = $_GET['d'];
 
 
-$sql="SELECT * FROM appointment WHERE clinic_id = '$c' AND appointment.date = '$d'";  //need to test
+$sql="SELECT * FROM Appointment WHERE Clinic_id = '$c' AND Appointment.date = '$d'";  //need to test
 
 $result = mysqli_query($connection,$sql);
 

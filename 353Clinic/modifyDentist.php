@@ -9,14 +9,14 @@ $c = $_GET['a'];   //clinic
 
 //add queries
 if($q=="add"){
-  $sql="INSERT INTO Staff (staff_id,sname,clinic_id) VALUES ('$d','$n','$c')";
-  $sql2="INSERT INTO hygienist(staff_id) VALUES ('$d')";
-  $sql3="INSERT INTO dentist(staff_id) VALUES ('$d')";
+  $sql="INSERT INTO Staff (staff_id, sname, clinic_id) VALUES ('$d','$n','$c')";
+  $sql2="INSERT INTO Hygienist(staff_id) VALUES ('$d')";
+  $sql3="INSERT INTO Dentist(staff_id) VALUES ('$d')";
 }
 //delete queries
 else{
-  $sql="DELETE FROM dentist WHERE staff_id=$d";
-  $sql2="DELETE FROM hygienist WHERE staff_id=$d";
+  $sql="DELETE FROM Dentist WHERE staff_id=$d";
+  $sql2="DELETE FROM Hygienist WHERE staff_id=$d";
   $sql3="DELETE FROM Staff WHERE staff_id=$d";
 
 }

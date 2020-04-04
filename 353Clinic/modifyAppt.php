@@ -13,10 +13,10 @@ $q = $_GET['q'];                //queryType
 
 
 if($q=="add"){
-  $sql="INSERT INTO appointment (app_id,staff_id,patient_id,clinic_id,appointment.date,status,rece_id) VALUES ('$ap','$st','$p','$c','$d','$s','$r')";
+  $sql="INSERT INTO Appointment (app_id,staff_id,patient_id,clinic_id,Appointment.date,status,rece_id) VALUES ('$ap','$st','$p','$c','$d','$s','$r')";
 }
 else{
-  $sql="DELETE FROM appointment WHERE app_id=$ap";
+  $sql="DELETE FROM Appointment WHERE app_id=$ap";
 }
 
 $result = mysqli_query($connection,$sql);

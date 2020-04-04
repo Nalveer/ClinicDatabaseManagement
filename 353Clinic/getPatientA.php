@@ -6,7 +6,7 @@
 $p = intval($_GET['p']);
 
 //sql query
-$sql="SELECT * FROM appointment WHERE patient_id = '".$p."'";  //change query after adding appointment table
+$sql="SELECT * FROM Appointment WHERE patient_id = '".$p."'";  //change query after adding appointment table
 $result = mysqli_query($connection,$sql);
 
 $resultCheck = mysqli_num_rows($result);

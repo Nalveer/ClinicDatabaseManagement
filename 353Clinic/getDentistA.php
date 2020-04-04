@@ -8,7 +8,7 @@ $d = $_GET['d'];   //date
 
 
 //sql query
-$sql="SELECT * FROM appointment WHERE staff_id ='$s' AND appointment.date = '$d'";  //change query after adding appointment table
+$sql="SELECT * FROM Appointment WHERE staff_id ='$s' AND date between '$d' AND date_add('$d', interval 1 week)";  //change query after adding appointment table
 $result = mysqli_query($connection,$sql);
 
 $resultCheck = mysqli_num_rows($result);

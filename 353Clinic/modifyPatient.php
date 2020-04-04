@@ -9,11 +9,11 @@ $n = $_GET['n'];
 
 //add query
 if($q=="add"){
-  $sql="INSERT INTO patient (patient_id, pname) VALUES ('$p','$n')";
+  $sql="INSERT INTO Patient (patient_id, pname) VALUES ('$p','$n')";
 }
 //delete query
 else{
-  $sql="DELETE FROM patient WHERE patient_id=$p";
+  $sql="DELETE FROM Patient WHERE patient_id=$p";
 }
 
 //query excecuted
